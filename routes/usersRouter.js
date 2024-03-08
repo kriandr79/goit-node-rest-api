@@ -8,7 +8,7 @@ const usersRouter = express.Router();
 
 usersRouter.post("/register", validateBody(userSchema), register);
 usersRouter.post("/login", validateBody(userSchema), login);
-usersRouter.get("/logout", auth, logout);
+usersRouter.post("/logout", auth, logout);
 usersRouter.get("/current", auth, current);
 usersRouter.patch(
   "/",
