@@ -22,7 +22,7 @@ export const getOneContact = async (req, res, next) => {
   try {
     const owner = req.user.id;
     const { id } = req.params;
-    const contact = await Contact.findById(id);
+    const contact = await Contact.findOne(id);
 
     if (!contact) {
       throw HttpError(404, "Not found");
