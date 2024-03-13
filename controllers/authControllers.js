@@ -126,7 +126,7 @@ export const uploadAvatar = async (req, res, next) => {
 
     const user = await User.findByIdAndUpdate(
       owner,
-      { avatarURL },
+      { avatarURL: `/avatars/${avatarURL}`},
       { new: true }
     );
 
@@ -134,7 +134,7 @@ export const uploadAvatar = async (req, res, next) => {
       return res.status(404);
     }
 
-    res.status(200).send({ avatarURL });
+    res.status(200).send({ avatarURL: `/avatars/${avatarURL}` });
   } catch (error) {
     next(error);
   }
